@@ -1,0 +1,60 @@
+<view>
+  <!--商品搜索开始-->
+  <view>
+    <view class="wxSearch-pancel">
+    <view><icon type='search' size='14'/></view>
+        <input class='wxSearch-input' placeholder-class='placeholder' placeholder='搜索您想要的商品'/>
+    </view>
+  </view>
+  <!--商品搜索结束-->
+
+  <!--轮播图开始-->
+  <swiper class='banners' autoplay circular>
+    <block wx:key='{{item.key}}' wx:for='{{slides}}'>
+    <swiper-item>
+      <image src='{{item.imgUrl}}'/>
+    </swiper-item>
+    </block>
+  </swiper>
+  <!--轮播图结束-->
+
+  <!--公告开始-->
+  <view class='shop-notice'>
+    <image class='img-notice' src='/images/notice.png'/>
+    <image class='img-laba' src='/images/laba.png'/>
+    <swiper class='notice-content' autoplay circular>
+      <block wx:key='{{item.id}}' wx:for='{{notices}}'>
+        <swiper-item><text class='content-txt'>{{item.content}}</text></swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!--公告结束-->
+
+  <!--产品类型开始-->
+  <view class='type-list'>
+    <block wx:key='{{item.id}}' wx:for='{{types}}'>
+      <view class='type-info'>
+        <view><image src='{{item.imgUrl}}'/></view>
+        <view><text>{{item.name}}</text></view>
+      </view>
+    </block>
+  </view>
+  <!--产品类型结束-->
+
+  <!--热销商品开始-->
+  <view class='shopping-line'></view>
+  <view class='shop-goods'>
+    <view class='shop-gang1'></view>
+    <view class='shop-shangpin'>热销商品</view>
+    <view class='shop-gang2'></view>
+  </view>
+  <view>
+    <block wx:key='{{item.id}}' wx:for='{{goods}}'>
+      <view class='goods-info'>
+        <view><image src='{{item.imgUrl}}'/></view>
+        <view>价格：{{item.realityPrice}}</view>
+      </view>
+    </block>
+  </view>
+  <!--热销商品结束-->
+</view>
